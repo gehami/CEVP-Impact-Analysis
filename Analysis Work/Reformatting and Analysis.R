@@ -523,7 +523,8 @@ fire_trips_4_min_map_aesthetic <- leaflet() %>%
   # focus map in a certain area / zoom level
   setView(lng = -121.88, lat = 37.32, zoom = 12) %>%
   addPolylines(data = c_sldf[c_sldf$real_travel_time < 240,],
-               weight = 1, color = '#000000')
+               weight = 1, color = '#000000') %>% 
+  addPolygons(data = sj, fillOpacity = 0, color = '#000000', opacity = 1)
 
 ########### Making a case study ########
 
@@ -653,7 +654,7 @@ cs_trip_map <- leaflet() %>%
 
 
 
-########### Doing some stuff for JOSE and Michael
+########### Doing some stuff for JOSE and Michael ####################
 #creating a posix date time var from the date_time var
 add_dt = function(cevp){
   date_time_reformat = gsub('([0-9]{4})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})([[:print:]]*)', 
